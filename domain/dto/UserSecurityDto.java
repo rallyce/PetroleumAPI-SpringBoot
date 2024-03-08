@@ -18,5 +18,5 @@ public class UserSecurityDto {
     private String password;
 
 
-    private Integer enableUser;
+    private String role;
 }

@@ -24,7 +24,7 @@ public class UserSecurityEntity {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "enabled")
-    private Integer enableUser;
+    @Column(name = "role")
+    private String role;
 
 }
