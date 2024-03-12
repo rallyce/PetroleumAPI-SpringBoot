@@ -39,19 +39,19 @@ public class UserSecurityServiceImpl implements UserSecurityService {
     }
 
     @Override
-    public Optional<UserSecurityEntity> findOne(String userName) {
-        return userSecurityRepository.findById(userName);
+    public Optional<UserSecurityEntity> findOne(Long id) {
+        return userSecurityRepository.findById(id);
     }
 
     @Override
-    public boolean isExists(String username){
+    public boolean isExists(Long id){
 
-        return userSecurityRepository.existsById(username);
+        return userSecurityRepository.existsById(id);
     }
 
     @Override
-    public void eliminarUsuario(String userName) {
-        userSecurityRepository.deleteById(userName);
+    public void eliminarUsuario(Long id) {
+        userSecurityRepository.deleteById(id);
     }
 
 

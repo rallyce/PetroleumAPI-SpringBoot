@@ -14,10 +14,10 @@ public interface UserSecurityService {
 
     List<UserSecurityEntity> findAll();
 
-    Optional<UserSecurityEntity> findOne(String userName);
+    Optional<UserSecurityEntity> findOne(Long id);
 
-    public boolean isExists(String username);
+    public boolean isExists(Long id);
 
-    void eliminarUsuario(String userName);
+    void eliminarUsuario(Long id);
 
 }

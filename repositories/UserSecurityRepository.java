@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserSecurityRepository extends CrudRepository<UserSecurityEntity, String> {
+public interface UserSecurityRepository extends CrudRepository<UserSecurityEntity, Long> {
 }

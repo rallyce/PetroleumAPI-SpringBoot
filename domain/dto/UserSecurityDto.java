@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserSecurityDto {
 
+    private Long id;
 
     private String username;
 

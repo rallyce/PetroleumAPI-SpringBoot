@@ -45,10 +45,10 @@ public class UserController {
                 );
     }
 
-    @GetMapping("/users/{nombreUsuario}")
-    public ResponseEntity<UserSecurityDto> encontrarUsuario(@PathVariable("nombreUsuario") String username){
+    @GetMapping("/users/{idUsuario}")
+    public ResponseEntity<UserSecurityDto> encontrarUsuario(@PathVariable("idUsuario") Long id){
 
-        Optional<UserSecurityEntity> findUserEntity = userSecurityService.findOne(username);
+        Optional<UserSecurityEntity> findUserEntity = userSecurityService.findOne(id);
 
        return findUserEntity.map(userEntity ->{
 
@@ -58,17 +58,17 @@ public class UserController {
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PutMapping("/users/{nombreUsuario}")
+    @PutMapping("/users/{idUsuario}")
     public ResponseEntity<UserSecurityDto> actualizacionCompleta(
-            @PathVariable("nombreUsuario") String username,
+            @PathVariable("idUsuario") Long id,
             @RequestBody UserSecurityDto userSecurityDto){
 
-        if (!userSecurityService.isExists(username)) {
+        if (!userSecurityService.isExists(id)) {
 
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        userSecurityDto.setUsername(username);
+        userSecurityDto.setId(id);
         UserSecurityEntity userSecurityEntity = userSecurityMapper.mapFrom(userSecurityDto);
         UserSecurityEntity savedUserEntity = userSecurityService.crearUsuario(userSecurityEntity);
 
@@ -76,10 +76,10 @@ public class UserController {
 
     }
 
-    @DeleteMapping("/users/{nombreUsuario}")
-    public ResponseEntity eliminarUsuario(@PathVariable("nombreUsuario") String username){
+    @DeleteMapping("/users/{idUsuario}")
+    public ResponseEntity eliminarUsuario(@PathVariable("idUsuario") Long id){
 
-        userSecurityService.eliminarUsuario(username);
+        userSecurityService.eliminarUsuario(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
 
     }
