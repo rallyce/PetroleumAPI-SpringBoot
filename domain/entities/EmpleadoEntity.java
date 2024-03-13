@@ -19,15 +19,14 @@ public class EmpleadoEntity {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
-    private UserSecurityEntity empleadoId;
-
     @Column(name = "nombre")
     private String nombre;
 
     @Column(name = "pais")
     private String pais;
+
+    @Column(name = "ciudad")
+    private String ciudad;
 
 
 

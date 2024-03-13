@@ -14,10 +14,10 @@ public class EmpleadoDto {
 
     private Long id;
 
-    private UserSecurityEntity empleadoId;
-
     private String nombre;
 
     private String pais;
+
+    private String ciudad;
 
 }
