@@ -17,9 +17,12 @@ import java.util.Date;
 public class InventarioEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private String id;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "empleado_id")
+    private EmpleadoEntity empleadoId;
 
     @Column(name = "producto")
     private String producto;
@@ -30,8 +33,6 @@ public class InventarioEntity {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "empleado_id")
-    private EmpleadoEntity empleadoId;
+
 
 }

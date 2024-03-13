@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InventarioDto {
 
-    private Long id;
+    private String id;
+
+    private EmpleadoEntity empleadoId;
 
     private String producto;
 
@@ -20,5 +22,5 @@ public class InventarioDto {
 
     private String descripcion;
 
-    private EmpleadoEntity empleadoId;
+
 }
