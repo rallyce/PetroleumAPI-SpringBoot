@@ -42,5 +42,10 @@ public class InventarioServiceImpl implements InventarioService {
         return inventarioRepository.findById(idProducto);
     }
 
+    @Override
+    public void eliminarProducto(String idProducto) {
+        inventarioRepository.deleteById(idProducto);
+    }
+
 
 }

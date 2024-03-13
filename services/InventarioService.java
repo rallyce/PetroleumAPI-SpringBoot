@@ -15,4 +15,6 @@ public interface InventarioService {
 
     Optional<InventarioEntity> encontrarProducto(String idProducto);
 
+    void eliminarProducto(String idProducto);
+
 }

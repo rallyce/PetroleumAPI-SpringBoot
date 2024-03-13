@@ -72,4 +72,11 @@ public class InventarioController {
 
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @DeleteMapping("/producto/{id}")
+    public ResponseEntity eliminarProducto(@PathVariable("id") String idProducto){
+
+        inventarioService.eliminarProducto(idProducto);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 }
