@@ -29,6 +29,7 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<UserSecurityDto> crearUsuario(@RequestBody UserSecurityDto user){
 
+
         UserSecurityEntity userSecurityEntity = userSecurityMapper.mapFrom(user);
         UserSecurityEntity savedUserSecurityEntity = userSecurityService.crearUsuario(userSecurityEntity);
         return new ResponseEntity<>(userSecurityMapper.mapto(savedUserSecurityEntity), HttpStatus.CREATED);

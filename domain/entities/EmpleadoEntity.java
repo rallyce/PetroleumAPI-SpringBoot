@@ -20,14 +20,14 @@ public class EmpleadoEntity {
     private Long id;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "username")
-    private UserSecurityEntity empleadoUsername;
+    @JoinColumn(name = "user_id")
+    private UserSecurityEntity empleadoId;
 
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellido")
-    private String apellido;
+    @Column(name = "pais")
+    private String pais;
 
 
 

@@ -2,6 +2,7 @@ package com.rallyce.Petroleum_Inventario.controllers;
 
 import com.rallyce.Petroleum_Inventario.domain.dto.EmpleadoDto;
 import com.rallyce.Petroleum_Inventario.domain.entities.EmpleadoEntity;
+import com.rallyce.Petroleum_Inventario.domain.entities.UserSecurityEntity;
 import com.rallyce.Petroleum_Inventario.mappers.Mapper;
 import com.rallyce.Petroleum_Inventario.services.EmpleadoService;
 import org.springframework.http.HttpStatus;
@@ -18,14 +19,18 @@ public class EmpleadoController {
 
     private EmpleadoService empleadoService;
 
+    private UserSecurityEntity userSecurityEntity;
+
     private Mapper<EmpleadoEntity, EmpleadoDto> empleadoMapper;
+
+
 
     public EmpleadoController (EmpleadoService empleadoService, Mapper<EmpleadoEntity, EmpleadoDto> empleadoMapper){
         this.empleadoService = empleadoService;
         this.empleadoMapper= empleadoMapper;
     }
 
-    @PostMapping("/empeado")
+    @PostMapping("/empleado")
     public ResponseEntity<EmpleadoDto> crearEmpleado(@RequestBody EmpleadoDto empleadoDto){
         EmpleadoEntity empleadoEntity = empleadoMapper.mapFrom(empleadoDto);
         EmpleadoEntity savedEmpleadoEntity = empleadoService.crearEmpleado(empleadoEntity);
@@ -67,6 +72,7 @@ public class EmpleadoController {
         }
 
         empleadoDto.setId(idEmpleado);
+
         EmpleadoEntity empleadoEntity = empleadoMapper.mapFrom(empleadoDto);
         EmpleadoEntity savedEmpleadoEntity = empleadoService.crearEmpleado(empleadoEntity);
 
