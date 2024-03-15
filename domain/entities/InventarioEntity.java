@@ -21,8 +21,11 @@ public class InventarioEntity {
     private String id;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinColumn(name = "empleado_id")
-    private EmpleadoEntity empleadoId;
+    @JoinColumn(name = "informante_id")
+    private UserSecurityEntity informanteId;
+
+    @Column(name = "maquina")
+    private String maquina;
 
     @Column(name = "producto")
     private String producto;

@@ -79,6 +79,22 @@ public class EmpleadoController {
         return new ResponseEntity<>(empleadoMapper.mapto(savedEmpleadoEntity), HttpStatus.OK);
     }
 
+    @PatchMapping("/empleado/{id}")
+    public ResponseEntity<EmpleadoDto> actualizarParcialEmpleado(
+            @PathVariable("id") Long idEmpleado,
+            @RequestBody EmpleadoDto empleadoDto){
+
+        if (!empleadoService.encontrarId(idEmpleado)){
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        EmpleadoEntity empleadoEntity = empleadoMapper.mapFrom(empleadoDto);
+        EmpleadoEntity savedEmpleadoEntity = empleadoService.actualizarParcialEmpleado(idEmpleado, empleadoEntity);
+
+        return new ResponseEntity<>(empleadoMapper.mapto(savedEmpleadoEntity), HttpStatus.OK);
+    }
+
     @DeleteMapping("/empleado/{id}")
     public ResponseEntity eliminarEmpleado(@PathVariable("id") Long idEmpleado){
 

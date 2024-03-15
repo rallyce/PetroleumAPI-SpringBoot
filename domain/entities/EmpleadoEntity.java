@@ -28,6 +28,15 @@ public class EmpleadoEntity {
     @Column(name = "ciudad")
     private String ciudad;
 
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    private String role;
+
 
 
 }

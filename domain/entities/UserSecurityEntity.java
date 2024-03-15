@@ -6,25 +6,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "informante")
 public class UserSecurityEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "nombre")
+    private String nombre;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "correo")
+    private String correo;
 
-    @Column(name = "role")
-    private String role;
+    @OneToMany(mappedBy = "informanteId")
+    private List<InventarioEntity> productos;
+
 
 }

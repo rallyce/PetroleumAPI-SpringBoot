@@ -7,8 +7,6 @@ import com.rallyce.Petroleum_Inventario.services.InventarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -48,6 +46,22 @@ public class InventarioController {
         }
 
 
+    }
+
+    @PatchMapping("/producto/{id}")
+    public ResponseEntity<InventarioDto> actualizarParcialProducto(
+            @PathVariable("id") String idProducto,
+            @RequestBody InventarioDto inventarioDto){
+
+        if (!inventarioService.isExists(idProducto)){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        }
+
+        InventarioEntity inventarioEntity = inventarioMapper.mapFrom(inventarioDto);
+        InventarioEntity savedInventarioEntity = inventarioService.actualizarParcialProducto(idProducto, inventarioEntity);
+
+        return new ResponseEntity<>(inventarioMapper.mapto(savedInventarioEntity), HttpStatus.OK);
     }
 
     @GetMapping("/producto")

@@ -26,6 +26,19 @@ public class InventarioServiceImpl implements InventarioService {
     }
 
     @Override
+    public InventarioEntity actualizarParcialProducto(String idProducto, InventarioEntity producto) {
+        producto.setId(idProducto);
+
+        return inventarioRepository.findById(idProducto).map(inventarioEntity -> {
+            Optional.ofNullable(producto.getProducto()).ifPresent(inventarioEntity::setProducto);
+            Optional.ofNullable(producto.getFecha()).ifPresent(inventarioEntity::setFecha);
+            Optional.ofNullable(producto.getDescripcion()).ifPresent(inventarioEntity::setDescripcion);
+
+            return inventarioRepository.save(inventarioEntity);
+        }).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+    }
+
+    @Override
     public boolean isExists(String idProducto){
         return inventarioRepository.existsById(idProducto);
     }
@@ -46,6 +59,7 @@ public class InventarioServiceImpl implements InventarioService {
     public void eliminarProducto(String idProducto) {
         inventarioRepository.deleteById(idProducto);
     }
+
 
 
 }

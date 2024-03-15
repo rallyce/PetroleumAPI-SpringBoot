@@ -9,6 +9,8 @@ public interface EmpleadoService {
 
     EmpleadoEntity crearEmpleado(EmpleadoEntity empleado);
 
+    EmpleadoEntity actualizarParcialEmpleado(Long id, EmpleadoEntity empleado);
+
     List<EmpleadoEntity> encontrarTodos();
 
     Optional<EmpleadoEntity> encontrarEmpleado(Long id);

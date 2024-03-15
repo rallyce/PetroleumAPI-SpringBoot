@@ -20,4 +20,10 @@ public class EmpleadoDto {
 
     private String ciudad;
 
+    private String username;
+
+    private String password;
+
+    private String role;
+
 }

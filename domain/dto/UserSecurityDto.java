@@ -1,9 +1,12 @@
 package com.rallyce.Petroleum_Inventario.domain.dto;
 
+import com.rallyce.Petroleum_Inventario.domain.entities.InventarioEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -13,11 +16,11 @@ public class UserSecurityDto {
 
     private Long id;
 
-    private String username;
+    private String nombre;
 
 
-    private String password;
+    private String correo;
 
 
-    private String role;
+    private List<InventarioEntity> productos;
 }

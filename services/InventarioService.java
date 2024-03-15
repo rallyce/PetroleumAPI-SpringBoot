@@ -9,6 +9,8 @@ public interface InventarioService {
 
     InventarioEntity agregarProducto(String idProducto, InventarioEntity producto);
 
+    InventarioEntity actualizarParcialProducto(String idProducto, InventarioEntity producto);
+
     public boolean isExists(String idProducto);
 
     List<InventarioEntity> listaProductos();
