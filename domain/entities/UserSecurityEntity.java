@@ -1,5 +1,6 @@
 package com.rallyce.Petroleum_Inventario.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,8 @@ public class UserSecurityEntity {
     @Column(name = "correo")
     private String correo;
 
-    @OneToMany(mappedBy = "informanteId")
+    @JsonIgnore
+    @OneToMany(mappedBy = "informanteId", cascade = CascadeType.ALL)
     private List<InventarioEntity> productos;
 
 
