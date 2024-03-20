@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/usuarios")
 @CrossOrigin("http://localhost:5173/")
 public class UserController {
 

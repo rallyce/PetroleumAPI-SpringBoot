@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/autoridad")
 @CrossOrigin("http://localhost:5173/")
 public class AuthorityController {
 

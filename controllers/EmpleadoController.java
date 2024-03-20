@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/employee")
 @CrossOrigin("http://localhost:5173/")
 public class EmpleadoController {
 
