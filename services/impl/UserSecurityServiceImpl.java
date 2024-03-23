@@ -45,7 +45,7 @@ public class UserSecurityServiceImpl implements UserSecurityService {
 
     @Override
     public boolean isExists(Long id){
-
+        
         return userSecurityRepository.existsById(id);
     }
 
