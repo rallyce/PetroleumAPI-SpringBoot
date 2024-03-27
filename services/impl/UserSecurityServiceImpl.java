@@ -1,6 +1,7 @@
 package com.rallyce.Petroleum_Inventario.services.impl;
 
 
+import com.rallyce.Petroleum_Inventario.domain.entities.EmpleadoEntity;
 import com.rallyce.Petroleum_Inventario.domain.entities.UserSecurityEntity;
 import com.rallyce.Petroleum_Inventario.repositories.UserSecurityRepository;
 import com.rallyce.Petroleum_Inventario.services.UserSecurityService;
@@ -41,6 +42,11 @@ public class UserSecurityServiceImpl implements UserSecurityService {
     @Override
     public Optional<UserSecurityEntity> findOne(Long id) {
         return userSecurityRepository.findById(id);
+    }
+
+    @Override
+    public Optional<UserSecurityEntity> encontrarInformantePorNombre(String nombre){
+        return userSecurityRepository.findByNombre(nombre);
     }
 
     @Override

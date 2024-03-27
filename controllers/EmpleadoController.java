@@ -62,7 +62,6 @@ public class EmpleadoController {
 
     }
 
-
     @PutMapping("/empleado/{id}")
     public ResponseEntity<EmpleadoDto> actualizarEmpleado(
             @PathVariable("id") Long idEmpleado,

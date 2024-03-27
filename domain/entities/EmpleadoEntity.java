@@ -51,6 +51,11 @@ public class EmpleadoEntity implements UserDetails {
     }
 
     @Override
+    public String getUsername(){
+        return nombre;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
         return true;
     }

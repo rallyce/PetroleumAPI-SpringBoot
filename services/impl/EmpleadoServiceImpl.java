@@ -53,6 +53,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         return empleadoRepository.findById(id);
     }
 
+
     @Override
     public boolean encontrarId(Long id){
         return empleadoRepository.existsById(id);

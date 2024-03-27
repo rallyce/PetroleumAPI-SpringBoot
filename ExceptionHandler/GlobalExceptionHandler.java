@@ -10,7 +10,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handlerArgumentException(IllegalArgumentException ex){
-        return new ResponseEntity<String>("That field can't be empty", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<String>("A required field is empty", HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(RuntimeException.class)

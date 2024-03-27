@@ -1,6 +1,8 @@
 package com.rallyce.Petroleum_Inventario.controllers;
 
+import com.rallyce.Petroleum_Inventario.domain.dto.EmpleadoDto;
 import com.rallyce.Petroleum_Inventario.domain.dto.InventarioDto;
+import com.rallyce.Petroleum_Inventario.domain.entities.EmpleadoEntity;
 import com.rallyce.Petroleum_Inventario.domain.entities.InventarioEntity;
 import com.rallyce.Petroleum_Inventario.mappers.Mapper;
 import com.rallyce.Petroleum_Inventario.services.InventarioService;
@@ -87,6 +89,7 @@ public class InventarioController {
 
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
     @DeleteMapping("/producto/{id}")
     public ResponseEntity eliminarProducto(@PathVariable("id") String idProducto){
 

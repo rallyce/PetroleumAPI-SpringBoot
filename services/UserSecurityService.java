@@ -1,5 +1,6 @@
 package com.rallyce.Petroleum_Inventario.services;
 
+import com.rallyce.Petroleum_Inventario.domain.entities.EmpleadoEntity;
 import com.rallyce.Petroleum_Inventario.domain.entities.UserSecurityEntity;
 import org.apache.catalina.User;
 
@@ -15,6 +16,8 @@ public interface UserSecurityService {
     List<UserSecurityEntity> findAll();
 
     Optional<UserSecurityEntity> findOne(Long id);
+
+    Optional<UserSecurityEntity> encontrarInformantePorNombre(String nombre);
 
     public boolean isExists(Long id);
 

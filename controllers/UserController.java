@@ -1,6 +1,8 @@
 package com.rallyce.Petroleum_Inventario.controllers;
 
+import com.rallyce.Petroleum_Inventario.domain.dto.EmpleadoDto;
 import com.rallyce.Petroleum_Inventario.domain.dto.UserSecurityDto;
+import com.rallyce.Petroleum_Inventario.domain.entities.EmpleadoEntity;
 import com.rallyce.Petroleum_Inventario.domain.entities.UserSecurityEntity;
 import com.rallyce.Petroleum_Inventario.mappers.Mapper;
 import com.rallyce.Petroleum_Inventario.services.UserSecurityService;
@@ -56,6 +58,19 @@ public class UserController {
 
           UserSecurityDto userDto = userSecurityMapper.mapto(userEntity);
           return new ResponseEntity<>(userDto, HttpStatus.OK);
+
+        }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/informanteByName/{name}")
+    public ResponseEntity<UserSecurityDto> empleadoPorNombre(@PathVariable("name") String nombre){
+
+        Optional<UserSecurityEntity> findEmpleadoNombre = userSecurityService.encontrarInformantePorNombre(nombre);
+
+        return findEmpleadoNombre.map(empleado -> {
+
+            UserSecurityDto userSecurityDto = userSecurityMapper.mapto(empleado);
+            return new ResponseEntity<>(userSecurityDto, HttpStatus.OK);
 
         }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
